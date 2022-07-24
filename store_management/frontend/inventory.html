@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Store Management</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css">
+    <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
+    <script src="js/inventory.js"></script>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <div class="header-image">
+        <a href="# ">
+            <image class="logo" src="./images/images.jpg " />
+            </i>
+        </a>
+    </div>
+    <div style="margin-left:50px; margin-right: 50px; margin-top: 10px; margin-bottom:10px" class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">Mega Store</a>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/product">Products</a></li>
+                <li><a href="/stores">Stores</a></li>
+                <li><a href="/inventory">Inventory</a></li>
+            </ul>
+        </div>
+        </nav>
+
+        <div class="jumbotron" style="padding:40px;">
+
+            <button onclick="addStoreProduct()" class="add-store-product-button btn btn-success" id="add-product-button">Map Product to store</button>
+            <div> <br> </div>
+            <form class="add-store-product-form" action="/api/storeProducts" method="post">
+                <table class="table table-bordered">
+                    <tr>
+                        <td colspan="2" class="alert-info">
+                            Add Product in store
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Store:</td>
+                        <td class="all-stores"> </td>
+                    </tr>
+                    <tr>
+                        <td>Product:</td>
+                        <td class="all-products"> </td>
+                    </tr>
+                    <tr>
+                        <td>Quantity:</td>
+                        <td><input type="number" name="quantity" required minlength="1"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" class="btn btn-primary" value="Add Quantity">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+            <form class="change-store-product-form" action="" method="put">
+                <input type="hidden" name="id">
+
+                <table class="table table-bordered">
+                    <tr>
+                        <td colspan="2" class="alert-info">
+                            Change Product Data
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Product Name:</td>
+                        <td><input type="text" placeholder="Name" name="name" required minlength="1"></td>
+                    </tr>
+                    <tr>
+                        <td>Description:</td>
+                        <td><input type="text" placeholder="Description" name="description" required minlength="1"></td>
+                    </tr>
+                    <tr>
+                        <td>price:</td>
+                        <td><input type="decimal" name="price" required minlength="1"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" class="btn btn-primary" value="Change Product">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+
+            <table class="table table-bordered">
+                <tr>
+                    <td colspan="2" class="alert-info">
+                        Check Available Product in Store
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Store Name</b></td>
+                    <td class="all-select-stores"> </td>
+                </tr>
+            </table>
+
+            <div class="list-of-stores-products"></div>
+        </div>
+    </div>
+</body>
+
+</html>
